@@ -51,8 +51,11 @@ scrape_configs:
           environment: 'development'
     metrics_path: '/metrics'
 
-  # Node Exporter (호스트 시스템 메트릭) - 필요시 활성화
-  # - job_name: 'node-exporter'
-  #   static_configs:
-  #     - targets: ['node-exporter:9100']
+  # Node Exporter (호스트 시스템 메트릭)
+  - job_name: 'node-exporter'
+    static_configs:
+      - targets: ['node-exporter:9100']
+        labels:
+          service: 'node-exporter'
+          instance: 'fairyquest-server'
 
