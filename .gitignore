@@ -64,3 +64,10 @@ temp/
 
 # Service file (optional)
 monitoring.service
+.aws/
+
+# PM2
+.pm2/
+
+# Apps (개별 레포에서 관리)
+apps/fairyquest/
