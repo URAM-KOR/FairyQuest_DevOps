@@ -24,32 +24,15 @@ scrape_configs:
         labels:
           service: 'prometheus'
 
-  # App1 메트릭 수집
-  - job_name: 'app1'
+  # FairyQuest 앱 메트릭 (PM2로 실행 중)
+  - job_name: 'fairyquest'
     static_configs:
-      - targets: ['app1:3001']
+      - targets: ['host.docker.internal:3001']
         labels:
-          service: 'app1'
-          environment: 'development'
-    metrics_path: '/metrics'
-
-  # App2 메트릭 수집
-  - job_name: 'app2'
-    static_configs:
-      - targets: ['app2:3002']
-        labels:
-          service: 'app2'
-          environment: 'development'
-    metrics_path: '/metrics'
-
-  # App3 메트릭 수집
-  - job_name: 'app3'
-    static_configs:
-      - targets: ['app3:3003']
-        labels:
-          service: 'app3'
-          environment: 'development'
-    metrics_path: '/metrics'
+          service: 'fairyquest'
+          app: 'mydevbook'
+          environment: 'production'
+    metrics_path: '/api/metrics'
 
   # Node Exporter (호스트 시스템 메트릭)
   - job_name: 'node-exporter'
@@ -59,3 +42,10 @@ scrape_configs:
           service: 'node-exporter'
           instance: 'fairyquest-server'
 
+  # 추가 앱 (필요시 활성화)
+  # - job_name: 'app2'
+  #   static_configs:
+  #     - targets: ['host.docker.internal:3002']
+  #       labels:
+  #         service: 'app2'
+  #   metrics_path: '/api/metrics'
