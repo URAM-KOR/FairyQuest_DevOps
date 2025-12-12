@@ -1,0 +1,66 @@
+# Dependencies
+node_modules/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Build outputs
+dist/
+build/
+.next/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Prometheus data (로컬 개발용)
+prometheus/data/*
+!prometheus/data/.gitkeep
+
+# Grafana data (로컬 개발용)
+grafana/data/*
+!grafana/data/.gitkeep
+
+# Prisma
+apps/*/prisma/migrations/
+apps/*/db/*.db
+apps/*/db/*.db-journal
+
+# Test coverage
+coverage/
+
+# Temporary files
+tmp/
+temp/
+
+# Cursor
+.cursor/
+.cursor-server/
+
+# SSH keys
+.ssh/
+
+# System files
+.bash*
+.profile
+.sudo_as_admin_successful
+.cache/
+
+# Service file (optional)
+monitoring.service
