@@ -42,6 +42,15 @@ scrape_configs:
           service: 'node-exporter'
           instance: 'fairyquest-server'
 
+  # PostgreSQL Exporter (데이터베이스 메트릭)
+  - job_name: 'postgres'
+    static_configs:
+      - targets: ['postgres-exporter:9187']
+        labels:
+          service: 'postgres'
+          database: 'fairyquest'
+          instance: 'fairyquest-db'
+
   # 추가 앱 (필요시 활성화)
   # - job_name: 'app2'
   #   static_configs:

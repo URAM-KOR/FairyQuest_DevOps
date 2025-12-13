@@ -178,6 +178,22 @@ services:
     networks:
       - app-network
 
+  # ------------------------------------------
+  # PostgreSQL Exporter - 데이터베이스 메트릭 (선택)
+  # ------------------------------------------
+  postgres-exporter:
+    image: prometheuscommunity/postgres-exporter:latest
+    container_name: postgres-exporter
+    restart: unless-stopped
+    ports:
+      - "9187:9187"
+    environment:
+      DATA_SOURCE_NAME: "postgresql://fairyquest_user:fairyquest_pass_2024@host.docker.internal:5432/fairyquest?sslmode=disable"
+    networks:
+      - app-network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
 # ============================================
 # 네트워크 정의
 # ============================================
